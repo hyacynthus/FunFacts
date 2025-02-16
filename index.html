@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greek Mythology Fun Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #8b0000; /* Maroon */
+        }
+
+        #fact-container {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #1e90ff; /* Deep blue */
+            min-height: 60px;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        button {
+            background-color: #ffd700; /* Gold */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #daa520; /* Darker gold */
+        }
+
+        .fade-in {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Greek Mythology Fun Facts</h1>
+        <div id="fact-container" class="fact-container">
+            <!-- Fact will be displayed here -->
+        </div>
+        <button id="generate-fact-btn">Generate Fun Fact</button>
+    </div>
+    <script>
+        const facts = [
+            {
+                "fact": "The Twelve Olympians are the major deities of the Greek pantheon.",
+                "details": "They include Zeus, Hera, Poseidon, Demeter, Athena, Apollo, Artemis, Ares, Aphrodite, Hephaestus, Hermes, and either Hestia or Dionysus."
+            },
+            {
+                "fact": "Zeus is the king of the gods.",
+                "details": "He is the god of the sky, lightning, and thunder, and rules over Mount Olympus."
+            },
+            {
+                "fact": "Hades is the god of the underworld.",
+                "details": "He rules over the dead and is often associated with wealth and the riches found underground."
+            },
+            {
+                "fact": "Athena was born from Zeus's head.",
+                "details": "She sprang fully grown and armored after Zeus swallowed her pregnant mother, Metis."
+            },
+            {
+                "fact": "The Trojan War was sparked by the abduction of Helen.",
+                "details": "Helen, the wife of Menelaus, was taken by Paris of Troy, leading to a ten-year war."
+            },
+            {
+                "fact": "The Minotaur was a creature with the body of a man and the head of a bull.",
+                "details": "It was kept in the Labyrinth on the island of Crete and was eventually killed by Theseus."
+            },
+            {
+                "fact": "Prometheus gave fire to humanity.",
+                "details": "As a punishment, Zeus had him bound to a rock where an eagle would eat his liver daily."
+            },
+            {
+                "fact": "The Oracle of Delphi was a priestess known as the Pythia.",
+                "details": "She was believed to deliver prophecies inspired by Apollo."
+            },
+            {
+                "fact": "Medusa was one of the Gorgons.",
+                "details": "She had snakes for hair and could turn anyone who looked at her into stone."
+            },
+            {
+                "fact": "The Muses were goddesses of inspiration in the arts and sciences.",
+                "details": "There were nine Muses, each responsible for a different domain such as music, dance, and poetry."
+            }
+        ];
+
+        document.getElementById('generate-fact-btn').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const fact = facts[randomIndex];
+            const factContainer = document.getElementById('fact-container');
+            factContainer.innerHTML = `<strong>${fact.fact}</strong><br>${fact.details}`;
+            factContainer.classList.remove('fade-in');
+            setTimeout(() => {
+                factContainer.classList.add('fade-in');
+            }, 10);
+        });
+    </script>
+</body>
+</html>
